@@ -26,7 +26,7 @@ type (
 		Password string `validate:"required" json:"password"`
 	}
 	Claims struct {
-		Username string `json:"username"`
+		Email string `validate:"required,email" json:"email"`
 		jwt.StandardClaims
 	}
 	User struct {

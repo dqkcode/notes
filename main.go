@@ -46,7 +46,11 @@ func main() {
 	userSrv := user.NewService(userRepo)
 	userHandler := user.NewHandler(userSrv)
 
+	//Post
 	router.Path("/users").Methods(http.MethodPost).HandlerFunc(userHandler.Register)
+	router.Path("/login").Methods(http.MethodPost).HandlerFunc(userHandler.Login)
+	//Get
+	router.Path("/showinfos").Methods(http.MethodGet).HandlerFunc(userHandler.ShowInfo)
 
 	server := http.Server{
 		Addr:         serverConf.Addr,
